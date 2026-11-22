@@ -100,6 +100,26 @@
   <main id="conteudo-principal" tabindex="-1">
     <!-- Hero focado em busca de serviços -->
     <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero__arquitetura" aria-hidden="true">
+        <svg viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax slice">
+          <rect x="140" y="90" width="420" height="230" rx="6" fill="currentColor" opacity="0.12"></rect>
+          <rect x="200" y="45" width="300" height="275" rx="6" fill="currentColor" opacity="0.14"></rect>
+          <rect x="260" y="130" width="180" height="190" fill="#0B2545" opacity="0.55"></rect>
+          <g fill="currentColor" opacity="0.22">
+            <rect x="220" y="70" width="36" height="28" rx="2"></rect>
+            <rect x="272" y="70" width="36" height="28" rx="2"></rect>
+            <rect x="324" y="70" width="36" height="28" rx="2"></rect>
+            <rect x="376" y="70" width="36" height="28" rx="2"></rect>
+            <rect x="428" y="70" width="36" height="28" rx="2"></rect>
+            <rect x="160" y="120" width="32" height="24" rx="2"></rect>
+            <rect x="160" y="160" width="32" height="24" rx="2"></rect>
+            <rect x="160" y="200" width="32" height="24" rx="2"></rect>
+            <rect x="488" y="120" width="32" height="24" rx="2"></rect>
+            <rect x="488" y="160" width="32" height="24" rx="2"></rect>
+            <rect x="488" y="200" width="32" height="24" rx="2"></rect>
+          </g>
+        </svg>
+      </div>
       <div class="container hero__inner">
         <span class="hero__etiqueta">Atendimento digital para cidadãos, servidores e empresas</span>
         <h1 id="hero-titulo" class="hero__titulo">
@@ -381,12 +401,12 @@
       </div>
     </section>
 
-    <!-- Bloco organizado de Últimas notícias (máximo 3 cards limpos) -->
+    <!-- Bloco organizado de Últimas notícias e Destaques (máximo 3 cards limpos) -->
     <section class="secao" id="noticias" aria-labelledby="titulo-noticias">
       <div class="container">
         <div class="secao__cabecalho">
           <div>
-            <h2 id="titulo-noticias" class="secao__titulo">Últimas notícias</h2>
+            <h2 id="titulo-noticias" class="secao__titulo">Últimas notícias e Destaques</h2>
             <p class="secao__descricao">
               Informes essenciais de utilidade pública em todo o estado.
             </p>
@@ -396,48 +416,89 @@
 
         <div class="grid-noticias">
           <article class="card-noticia">
-            <div class="card-noticia__meta">
-              <span class="card-noticia__categoria">Infraestrutura</span>
-              <time datetime="2026-11-20">20 nov 2026</time>
+            <a href="#noticias" class="card-noticia__capa-link" tabindex="-1" aria-hidden="true">
+              <div class="card-noticia__capa">
+                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de rodovia estadual pavimentada em Rondônia">
+                  <rect width="320" height="180" fill="#DCE8F5"></rect>
+                  <path d="M0 112 Q80 96 160 110 T320 104 L320 180 L0 180 Z" fill="#15803D" opacity="0.85"></path>
+                  <path d="M126 180 L152 106 L168 106 L194 180 Z" fill="#1E293B"></path>
+                  <line x1="160" y1="112" x2="160" y2="176" stroke="#F2B705" stroke-width="3" stroke-dasharray="10 8"></line>
+                  <circle cx="262" cy="44" r="18" fill="#F2B705" opacity="0.9"></circle>
+                </svg>
+              </div>
+            </a>
+            <div class="card-noticia__conteudo">
+              <div class="card-noticia__meta">
+                <span class="card-noticia__categoria">Infraestrutura</span>
+                <time datetime="2026-11-20">20 nov 2026</time>
+              </div>
+              <h3 class="card-noticia__titulo">
+                <a href="#noticias" class="card-noticia__link">
+                  Obras de drenagem e pavimentação avançam em rodovias estaduais
+                </a>
+              </h3>
+              <p class="card-noticia__resumo">
+                Intervenções melhoram o escoamento da produção agrícola e a segurança no trânsito regional.
+              </p>
             </div>
-            <h3 class="card-noticia__titulo">
-              <a href="#noticias" class="card-noticia__link">
-                Obras de drenagem e pavimentação avançam em rodovias estaduais
-              </a>
-            </h3>
-            <p class="card-noticia__resumo">
-              Intervenções melhoram o escoamento da produção agrícola e a segurança no trânsito regional.
-            </p>
           </article>
 
           <article class="card-noticia">
-            <div class="card-noticia__meta">
-              <span class="card-noticia__categoria">Saúde</span>
-              <time datetime="2026-11-18">18 nov 2026</time>
+            <a href="#noticias" class="card-noticia__capa-link" tabindex="-1" aria-hidden="true">
+              <div class="card-noticia__capa">
+                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração de atendimento na rede estadual de saúde">
+                  <rect width="320" height="180" fill="#E6F4EE"></rect>
+                  <rect x="85" y="42" width="150" height="110" rx="12" fill="#FFFFFF" stroke="#15803D" stroke-width="3"></rect>
+                  <rect x="148" y="68" width="24" height="58" rx="4" fill="#15803D"></rect>
+                  <rect x="131" y="85" width="58" height="24" rx="4" fill="#15803D"></rect>
+                  <circle cx="62" cy="136" r="18" fill="#134074" opacity="0.2"></circle>
+                  <circle cx="258" cy="56" r="14" fill="#F2B705" opacity="0.35"></circle>
+                </svg>
+              </div>
+            </a>
+            <div class="card-noticia__conteudo">
+              <div class="card-noticia__meta">
+                <span class="card-noticia__categoria">Saúde</span>
+                <time datetime="2026-11-18">18 nov 2026</time>
+              </div>
+              <h3 class="card-noticia__titulo">
+                <a href="#noticias" class="card-noticia__link">
+                  Campanha estadual de vacinação amplia horário de atendimento nos municípios
+                </a>
+              </h3>
+              <p class="card-noticia__resumo">
+                Unidades básicas passam a atender em turno estendido para facilitar o acesso de trabalhadores.
+              </p>
             </div>
-            <h3 class="card-noticia__titulo">
-              <a href="#noticias" class="card-noticia__link">
-                Campanha estadual de vacinação amplia horário de atendimento nos municípios
-              </a>
-            </h3>
-            <p class="card-noticia__resumo">
-              Unidades básicas passam a atender em turno estendido para facilitar o acesso de trabalhadores.
-            </p>
           </article>
 
           <article class="card-noticia">
-            <div class="card-noticia__meta">
-              <span class="card-noticia__categoria">Educação</span>
-              <time datetime="2026-11-15">15 nov 2026</time>
+            <a href="#noticias" class="card-noticia__capa-link" tabindex="-1" aria-hidden="true">
+              <div class="card-noticia__capa">
+                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustração da rede pública estadual de educação">
+                  <rect width="320" height="180" fill="#E8EEF7"></rect>
+                  <rect x="70" y="68" width="180" height="84" rx="8" fill="#0B2545"></rect>
+                  <polygon points="160,34 56,74 264,74" fill="#134074"></polygon>
+                  <rect x="142" y="106" width="36" height="46" rx="4" fill="#F2B705"></rect>
+                  <rect x="92" y="92" width="28" height="24" rx="3" fill="#FFFFFF" opacity="0.85"></rect>
+                  <rect x="200" y="92" width="28" height="24" rx="3" fill="#FFFFFF" opacity="0.85"></rect>
+                </svg>
+              </div>
+            </a>
+            <div class="card-noticia__conteudo">
+              <div class="card-noticia__meta">
+                <span class="card-noticia__categoria">Educação</span>
+                <time datetime="2026-11-15">15 nov 2026</time>
+              </div>
+              <h3 class="card-noticia__titulo">
+                <a href="#noticias" class="card-noticia__link">
+                  Aberto o período de pré-matrícula digital para a rede pública estadual
+                </a>
+              </h3>
+              <p class="card-noticia__resumo">
+                Responsáveis podem realizar a inscrição on-line de forma simples usando o CPF do estudante.
+              </p>
             </div>
-            <h3 class="card-noticia__titulo">
-              <a href="#noticias" class="card-noticia__link">
-                Aberto o período de pré-matrícula digital para a rede pública estadual
-              </a>
-            </h3>
-            <p class="card-noticia__resumo">
-              Responsáveis podem realizar a inscrição on-line de forma simples usando o CPF do estudante.
-            </p>
           </article>
         </div>
       </div>

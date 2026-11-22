@@ -254,7 +254,7 @@
   });
 
   const linksSimulados = document.querySelectorAll(
-    '.card-servico__link, .card-institucional .btn-secundario, .card-noticia__link, .link-ver-todas'
+    '.card-servico__link, .card-institucional .btn-secundario, .card-noticia__link, .card-noticia__capa-link, .link-ver-todas'
   );
 
   linksSimulados.forEach((link) => {
