@@ -180,9 +180,22 @@ svg {
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.btn-acessibilidade:hover {
+.btn-acessibilidade:hover:not(:disabled) {
   background-color: rgba(255, 255, 255, 0.14);
   border-color: #ffffff;
+}
+
+.btn-acessibilidade:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.indicador-fonte {
+  min-width: 44px;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #e2e8f0;
 }
 
 .btn-acessibilidade[aria-pressed="true"] {
@@ -210,6 +223,44 @@ svg {
   flex-direction: column;
   gap: 0.75rem;
   padding-block: 0.875rem;
+}
+
+.cabecalho__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.btn-menu-mobile {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.5rem 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+[data-contrast="high"] .btn-menu-mobile {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.navegacao {
+  display: none;
+}
+
+.navegacao.navegacao--aberta {
+  display: block;
 }
 
 .marca {
@@ -330,14 +381,42 @@ svg {
 }
 
 .busca-hero__grupo {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 0.5rem;
   background-color: var(--cor-superficie);
   padding: 0.5rem;
   border-radius: var(--raio-card);
   border: 2px solid transparent;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.busca-hero__limpar {
+  min-width: 48px;
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--cor-texto-secundario);
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.busca-hero__limpar[hidden] {
+  display: none;
+}
+
+.busca-hero__limpar:hover {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+}
+
+.busca-hero__botao {
+  grid-column: 1 / -1;
 }
 
 [data-contrast="high"] .busca-hero__grupo {
@@ -441,6 +520,12 @@ svg {
 
 .tag-rapida:hover {
   background-color: rgba(255, 255, 255, 0.22);
+  border-color: var(--cor-amarelo-detalhe);
+}
+
+.tag-rapida[aria-pressed="true"] {
+  background-color: var(--cor-amarelo-detalhe);
+  color: #0b2545;
   border-color: var(--cor-amarelo-detalhe);
 }
 
@@ -889,6 +974,55 @@ svg {
 }
 
 /* ==========================================================================
+   Toast de Aviso (Protótipo Conceitual)
+   ========================================================================== */
+.toast {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  left: 1.25rem;
+  max-width: 460px;
+  margin-left: auto;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background-color: var(--cor-azul-escuro);
+  color: #ffffff;
+  border: 2px solid var(--cor-amarelo-detalhe);
+  border-radius: var(--raio-card);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+.toast__texto {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.toast__fechar {
+  min-width: 48px;
+  min-height: 48px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 1.375rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.toast__fechar:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================================================
    Responsividade (Mobile-First -> Tablet / Desktop)
    ========================================================================== */
 @media (min-width: 640px) {
@@ -898,7 +1032,17 @@ svg {
     justify-content: space-between;
   }
 
+  .btn-menu-mobile {
+    display: none;
+  }
+
+  .navegacao,
+  .navegacao.navegacao--aberta {
+    display: block;
+  }
+
   .busca-hero__grupo {
+    display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 1rem;

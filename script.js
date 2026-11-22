@@ -4,10 +4,15 @@
   const html = document.documentElement;
   const btnDiminuir = document.getElementById('btn-diminuir-fonte');
   const btnAumentar = document.getElementById('btn-aumentar-fonte');
+  const indicadorFonte = document.getElementById('indicador-fonte');
   const btnContraste = document.getElementById('btn-alto-contraste');
+
+  const btnMenuMobile = document.getElementById('btn-menu-mobile');
+  const navegacaoPrincipal = document.getElementById('navegacao-principal');
 
   const formBusca = document.getElementById('form-busca');
   const campoBusca = document.getElementById('campo-busca');
+  const btnLimparInput = document.getElementById('btn-limpar-input');
   const tagsBusca = document.querySelectorAll('.tag-rapida[data-busca]');
   const botoesPerfil = document.querySelectorAll('.btn-perfil[data-perfil]');
   const cardsServico = document.querySelectorAll('.card-servico');
@@ -18,15 +23,23 @@
   const btnResetarBusca = document.getElementById('btn-resetar-busca');
   const secaoServicos = document.getElementById('servicos');
 
-  // --- Controles de Acessibilidade ---
+  const toastAviso = document.getElementById('toast-aviso');
+  const toastTexto = document.getElementById('toast-texto');
+  const toastFechar = document.getElementById('toast-fechar');
+
+  // --- Controles de Acessibilidade (Fonte e Alto Contraste) ---
   let tamanhoFonte = 100;
   const TAMANHO_MIN = 90;
-  const TAMANHO_MAX = 125;
+  const TAMANHO_MAX = 120;
   const PASSO_FONTE = 10;
 
   function aplicarTamanhoFonte(valor) {
     tamanhoFonte = Math.min(TAMANHO_MAX, Math.max(TAMANHO_MIN, valor));
     html.style.fontSize = `${tamanhoFonte}%`;
+    indicadorFonte.textContent = `${tamanhoFonte}%`;
+    btnDiminuir.disabled = tamanhoFonte <= TAMANHO_MIN;
+    btnAumentar.disabled = tamanhoFonte >= TAMANHO_MAX;
+
     try {
       localStorage.setItem('ro-portal-fonte', String(tamanhoFonte));
     } catch {
@@ -48,18 +61,19 @@
     }
   }
 
-  // Restaura preferências salvas
   try {
     const fonteSalva = Number(localStorage.getItem('ro-portal-fonte'));
     if (fonteSalva >= TAMANHO_MIN && fonteSalva <= TAMANHO_MAX) {
       aplicarTamanhoFonte(fonteSalva);
+    } else {
+      aplicarTamanhoFonte(100);
     }
-    const contrasteSalvo = localStorage.getItem('ro-portal-contraste');
-    if (contrasteSalvo === 'high') {
+
+    if (localStorage.getItem('ro-portal-contraste') === 'high') {
       aplicarAltoContraste(true);
     }
   } catch {
-    // Sem efeito se localStorage estiver bloqueado
+    aplicarTamanhoFonte(100);
   }
 
   btnDiminuir.addEventListener('click', () => {
@@ -74,6 +88,26 @@
     const ativo = html.getAttribute('data-contrast') === 'high';
     aplicarAltoContraste(!ativo);
   });
+
+  // --- Menu Mobile ---
+  if (btnMenuMobile && navegacaoPrincipal) {
+    btnMenuMobile.addEventListener('click', () => {
+      const aberto = navegacaoPrincipal.classList.toggle('navegacao--aberta');
+      btnMenuMobile.setAttribute('aria-expanded', String(aberto));
+      btnMenuMobile.setAttribute(
+        'aria-label',
+        aberto ? 'Fechar menu de navegação' : 'Abrir menu de navegação'
+      );
+    });
+
+    navegacaoPrincipal.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navegacaoPrincipal.classList.remove('navegacao--aberta');
+        btnMenuMobile.setAttribute('aria-expanded', 'false');
+        btnMenuMobile.setAttribute('aria-label', 'Abrir menu de navegação');
+      });
+    });
+  }
 
   // --- Busca e Filtro de Serviços ---
   let perfilAtivo = 'todos';
@@ -100,9 +134,21 @@
     });
   }
 
+  function atualizarTagsRapidas(termoNormalizado) {
+    tagsBusca.forEach((tag) => {
+      const corresponde =
+        Boolean(termoNormalizado) &&
+        normalizarTexto(tag.dataset.busca || '') === termoNormalizado;
+      tag.setAttribute('aria-pressed', String(corresponde));
+    });
+  }
+
   function filtrarServicos(termoBruto, rolarAteServicos = false) {
     const termoNormalizado = normalizarTexto(termoBruto);
     let encontrados = 0;
+
+    btnLimparInput.hidden = termoBruto.length === 0;
+    atualizarTagsRapidas(termoNormalizado);
 
     cardsServico.forEach((card) => {
       const conteudo = normalizarTexto(
@@ -172,6 +218,12 @@
     filtrarServicos(campoBusca.value, false);
   });
 
+  btnLimparInput.addEventListener('click', () => {
+    campoBusca.value = '';
+    filtrarServicos('');
+    campoBusca.focus();
+  });
+
   tagsBusca.forEach((tag) => {
     tag.addEventListener('click', () => {
       const termo = tag.dataset.busca || '';
@@ -183,4 +235,37 @@
 
   btnLimparFiltro.addEventListener('click', limparBusca);
   btnResetarBusca.addEventListener('click', limparBusca);
+
+  // --- Toast de Aviso para Links Simulados do Protótipo ---
+  let timerToast;
+
+  function mostrarToast(mensagem) {
+    toastTexto.textContent = mensagem;
+    toastAviso.hidden = false;
+    clearTimeout(timerToast);
+    timerToast = setTimeout(() => {
+      toastAviso.hidden = true;
+    }, 5000);
+  }
+
+  toastFechar.addEventListener('click', () => {
+    clearTimeout(timerToast);
+    toastAviso.hidden = true;
+  });
+
+  const linksSimulados = document.querySelectorAll(
+    '.card-servico__link, .card-institucional .btn-secundario, .card-noticia__link, .link-ver-todas'
+  );
+
+  linksSimulados.forEach((link) => {
+    link.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      const card = link.closest('article');
+      const tituloCard = card ? card.querySelector('h3')?.textContent?.trim() : '';
+      const alvo = tituloCard || link.textContent.trim();
+      mostrarToast(
+        `Protótipo conceitual: este link abriria "${alvo}" no portal oficial.`
+      );
+    });
+  });
 })();

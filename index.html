@@ -26,6 +26,7 @@
         >
           A-
         </button>
+        <span class="indicador-fonte" id="indicador-fonte" aria-live="polite" aria-label="Tamanho atual da fonte">100%</span>
         <button
           type="button"
           class="btn-acessibilidade"
@@ -53,21 +54,39 @@
   <!-- Cabeçalho enxuto -->
   <header class="cabecalho">
     <div class="container cabecalho__inner">
-      <a href="#topo" class="marca" id="topo" aria-label="Página inicial do Portal de Serviços de Rondônia">
-        <span class="marca__brasao" aria-hidden="true">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="10" fill="#0B2545"></rect>
-            <path d="M8 28L20 12L32 28H8Z" fill="#15803D"></path>
-            <path d="M20 12L25 22L20 20L15 22L20 12Z" fill="#F2B705"></path>
-          </svg>
-        </span>
-        <span class="marca__texto">
-          <strong>Governo de Rondônia</strong>
-          <small>Portal de Serviços ao Cidadão</small>
-        </span>
-      </a>
+      <div class="cabecalho__topo">
+        <a href="#topo" class="marca" id="topo" aria-label="Página inicial do Portal de Serviços de Rondônia">
+          <span class="marca__brasao" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="#0B2545"></rect>
+              <path d="M8 28L20 12L32 28H8Z" fill="#15803D"></path>
+              <path d="M20 12L25 22L20 20L15 22L20 12Z" fill="#F2B705"></path>
+            </svg>
+          </span>
+          <span class="marca__texto">
+            <strong>Governo de Rondônia</strong>
+            <small>Portal de Serviços ao Cidadão</small>
+          </span>
+        </a>
 
-      <nav class="navegacao" aria-label="Navegação principal">
+        <button
+          type="button"
+          class="btn-menu-mobile"
+          id="btn-menu-mobile"
+          aria-expanded="false"
+          aria-controls="navegacao-principal"
+          aria-label="Abrir menu de navegação"
+        >
+          <svg class="icone-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menu</span>
+        </button>
+      </div>
+
+      <nav class="navegacao" id="navegacao-principal" aria-label="Navegação principal">
         <ul class="navegacao__lista">
           <li><a href="#servicos" class="navegacao__link">Serviços</a></li>
           <li><a href="#acesso-institucional" class="navegacao__link">Transparência</a></li>
@@ -104,6 +123,15 @@
               placeholder="O que você precisa resolver hoje? (ex.: IPVA, CNH, concurso)"
               autocomplete="off"
             >
+            <button
+              type="button"
+              class="busca-hero__limpar"
+              id="btn-limpar-input"
+              aria-label="Limpar texto da busca"
+              hidden
+            >
+              &times;
+            </button>
             <button type="submit" class="busca-hero__botao">
               Buscar
             </button>
@@ -114,10 +142,10 @@
         <div class="tags-rapidas" aria-label="Buscas rápidas mais acessadas">
           <span class="tags-rapidas__rotulo">Mais buscados:</span>
           <div class="tags-rapidas__lista">
-            <button type="button" class="tag-rapida" data-busca="IPVA">IPVA</button>
-            <button type="button" class="tag-rapida" data-busca="CNH">Trânsito e CNH</button>
-            <button type="button" class="tag-rapida" data-busca="Concursos">Concursos</button>
-            <button type="button" class="tag-rapida" data-busca="Contracheque">Contracheque</button>
+            <button type="button" class="tag-rapida" data-busca="IPVA" aria-pressed="false">IPVA</button>
+            <button type="button" class="tag-rapida" data-busca="CNH" aria-pressed="false">Trânsito e CNH</button>
+            <button type="button" class="tag-rapida" data-busca="Concursos" aria-pressed="false">Concursos</button>
+            <button type="button" class="tag-rapida" data-busca="Contracheque" aria-pressed="false">Contracheque</button>
             <a href="#card-diario" class="tag-rapida">Diário Oficial</a>
             <a href="#card-ouvidoria" class="tag-rapida">Ouvidoria</a>
           </div>
@@ -431,6 +459,14 @@
       </div>
     </div>
   </footer>
+
+  <!-- Aviso discreto (toast) para links simulados do protótipo -->
+  <div class="toast" id="toast-aviso" role="status" aria-live="polite" hidden>
+    <p class="toast__texto" id="toast-texto"></p>
+    <button type="button" class="toast__fechar" id="toast-fechar" aria-label="Fechar aviso">
+      &times;
+    </button>
+  </div>
 
   <script src="script.js"></script>
 </body>
