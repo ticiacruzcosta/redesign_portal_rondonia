@@ -333,7 +333,7 @@ svg {
    Hero Focado em Busca de Serviços
    ========================================================================== */
 .hero {
-  background: linear-gradient(125deg, #0b2545 0%, #0e3059 100%);
+  background-color: #0b2545;
   color: #ffffff;
   padding-block: 3.25rem 3.5rem;
   border-bottom: 4px solid var(--cor-verde-destaque);
@@ -341,20 +341,19 @@ svg {
   overflow: hidden;
 }
 
-.hero__arquitetura {
+.hero__fundo {
   position: absolute;
-  inset: 0;
-  color: #ffffff;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(68%, 820px);
+  background-image:
+    linear-gradient(90deg, #0b2545 0%, rgba(11, 37, 69, 0.88) 38%, rgba(11, 37, 69, 0.48) 100%),
+    url("assets/hero-rondonia.jpg");
+  background-size: cover;
+  background-position: center 45%;
   pointer-events: none;
   z-index: 0;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-.hero__arquitetura svg {
-  width: min(620px, 90%);
-  height: 100%;
 }
 
 [data-contrast="high"] .hero {
@@ -362,7 +361,7 @@ svg {
   border-bottom: 3px solid #ffffff;
 }
 
-[data-contrast="high"] .hero__arquitetura {
+[data-contrast="high"] .hero__fundo {
   display: none;
 }
 
