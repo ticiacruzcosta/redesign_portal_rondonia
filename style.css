@@ -507,6 +507,61 @@ svg {
 }
 
 /* ==========================================================================
+   Filtros por Perfil (Cidadão, Servidor Público, Empresa)
+   ========================================================================== */
+.filtros-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-perfil {
+  min-height: 48px;
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto-principal);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-perfil:hover {
+  border-color: var(--cor-azul-medio);
+  color: var(--cor-azul-medio);
+}
+
+.btn-perfil[aria-pressed="true"] {
+  background-color: var(--cor-azul-escuro);
+  color: #ffffff;
+  border-color: var(--cor-azul-escuro);
+}
+
+[data-contrast="high"] .btn-perfil {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+[data-contrast="high"] .btn-perfil:hover {
+  border-color: var(--cor-amarelo-detalhe);
+  color: var(--cor-amarelo-detalhe);
+}
+
+[data-contrast="high"] .btn-perfil[aria-pressed="true"] {
+  background-color: var(--cor-amarelo-detalhe);
+  color: #000000;
+  border-color: var(--cor-amarelo-detalhe);
+}
+
+/* ==========================================================================
    Grade de Serviços
    ========================================================================== */
 .grid-servicos {

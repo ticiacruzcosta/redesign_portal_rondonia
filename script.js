@@ -9,6 +9,7 @@
   const formBusca = document.getElementById('form-busca');
   const campoBusca = document.getElementById('campo-busca');
   const tagsBusca = document.querySelectorAll('.tag-rapida[data-busca]');
+  const botoesPerfil = document.querySelectorAll('.btn-perfil[data-perfil]');
   const cardsServico = document.querySelectorAll('.card-servico');
   const statusBusca = document.getElementById('status-busca');
   const estadoVazio = document.getElementById('estado-vazio');
@@ -75,12 +76,28 @@
   });
 
   // --- Busca e Filtro de Serviços ---
+  let perfilAtivo = 'todos';
+  const NOMES_PERFIL = {
+    todos: 'Todos os públicos',
+    cidadao: 'Cidadão',
+    servidor: 'Servidor Público',
+    empresa: 'Empresa',
+  };
+
   function normalizarTexto(texto) {
     return texto
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .trim();
+  }
+
+  function atualizarBotoesPerfil(perfilSelecionado) {
+    perfilAtivo = perfilSelecionado;
+    botoesPerfil.forEach((botao) => {
+      const ativo = botao.dataset.perfil === perfilSelecionado;
+      botao.setAttribute('aria-pressed', String(ativo));
+    });
   }
 
   function filtrarServicos(termoBruto, rolarAteServicos = false) {
@@ -91,14 +108,20 @@
       const conteudo = normalizarTexto(
         `${card.textContent} ${card.dataset.palavras || ''}`
       );
-      const corresponde = !termoNormalizado || conteudo.includes(termoNormalizado);
-      card.hidden = !corresponde;
-      if (corresponde) {
+      const perfisCard = (card.dataset.perfis || '').split(/\s+/);
+      const correspondeBusca = !termoNormalizado || conteudo.includes(termoNormalizado);
+      const correspondePerfil = perfilAtivo === 'todos' || perfisCard.includes(perfilAtivo);
+      const visivel = correspondeBusca && correspondePerfil;
+
+      card.hidden = !visivel;
+      if (visivel) {
         encontrados += 1;
       }
     });
 
-    if (!termoNormalizado) {
+    const filtroAtivo = Boolean(termoNormalizado) || perfilAtivo !== 'todos';
+
+    if (!filtroAtivo) {
       statusBusca.textContent = '';
       estadoVazio.hidden = true;
       btnLimparFiltro.hidden = true;
@@ -107,13 +130,17 @@
 
     btnLimparFiltro.hidden = false;
 
+    const contextoPerfil =
+      perfilAtivo !== 'todos' ? ` no perfil ${NOMES_PERFIL[perfilAtivo]}` : '';
+    const contextoBusca = termoNormalizado ? ` para "${termoBruto}"` : '';
+
     if (encontrados === 0) {
-      statusBusca.textContent = `Nenhum serviço encontrado para "${termoBruto}".`;
-      termoVazio.textContent = termoBruto;
+      statusBusca.textContent = `Nenhum serviço encontrado${contextoBusca}${contextoPerfil}.`;
+      termoVazio.textContent = termoBruto || NOMES_PERFIL[perfilAtivo];
       estadoVazio.hidden = false;
     } else {
       const plural = encontrados === 1 ? 'serviço encontrado' : 'serviços encontrados';
-      statusBusca.textContent = `${encontrados} ${plural} para "${termoBruto}".`;
+      statusBusca.textContent = `${encontrados} ${plural}${contextoBusca}${contextoPerfil}.`;
       estadoVazio.hidden = true;
     }
 
@@ -124,9 +151,17 @@
 
   function limparBusca() {
     campoBusca.value = '';
+    atualizarBotoesPerfil('todos');
     filtrarServicos('');
     campoBusca.focus();
   }
+
+  botoesPerfil.forEach((botao) => {
+    botao.addEventListener('click', () => {
+      atualizarBotoesPerfil(botao.dataset.perfil || 'todos');
+      filtrarServicos(campoBusca.value, false);
+    });
+  });
 
   formBusca.addEventListener('submit', (evento) => {
     evento.preventDefault();
@@ -141,6 +176,7 @@
     tag.addEventListener('click', () => {
       const termo = tag.dataset.busca || '';
       campoBusca.value = termo;
+      atualizarBotoesPerfil('todos');
       filtrarServicos(termo, true);
     });
   });

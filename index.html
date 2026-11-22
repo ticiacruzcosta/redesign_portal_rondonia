@@ -140,11 +140,27 @@
           </button>
         </div>
 
+        <!-- Filtros por perfil de público (espelhando Cidadão, Servidor e Empresa) -->
+        <div class="filtros-perfil" role="group" aria-label="Filtrar serviços por perfil">
+          <button type="button" class="btn-perfil" data-perfil="todos" aria-pressed="true">
+            Todos os públicos
+          </button>
+          <button type="button" class="btn-perfil" data-perfil="cidadao" aria-pressed="false">
+            Cidadão
+          </button>
+          <button type="button" class="btn-perfil" data-perfil="servidor" aria-pressed="false">
+            Servidor Público
+          </button>
+          <button type="button" class="btn-perfil" data-perfil="empresa" aria-pressed="false">
+            Empresa
+          </button>
+        </div>
+
         <!-- Região ao vivo para leitores de tela ao filtrar serviços -->
         <p class="status-busca" id="status-busca" aria-live="polite"></p>
 
         <div class="grid-servicos" id="lista-servicos">
-          <article class="card-servico" data-palavras="impostos ipva tributos sefin guias certidão fiscal">
+          <article class="card-servico" data-perfis="cidadao empresa" data-palavras="impostos ipva tributos sefin guias certidão fiscal">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -165,7 +181,7 @@
             </a>
           </article>
 
-          <article class="card-servico" data-palavras="transito cnh habilitacao detran multas veiculo licenciamento">
+          <article class="card-servico" data-perfis="cidadao" data-palavras="transito cnh habilitacao detran multas veiculo licenciamento">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 17h14v-5l-2-5H7L5 12v5z"></path>
@@ -186,7 +202,7 @@
             </a>
           </article>
 
-          <article class="card-servico" data-palavras="saude sus sesau agendamento consultas vacinas hospitais">
+          <article class="card-servico" data-perfis="cidadao" data-palavras="saude sus sesau agendamento consultas vacinas hospitais">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 21s-7-4.35-9-9.5C1.5 7.5 4.5 4 8 4c2 0 3.5 1 4 2.5C12.5 5 14 4 16 4c3.5 0 6.5 3.5 5 7.5-2 5.15-9 9.5-9 9.5z"></path>
@@ -205,7 +221,7 @@
             </a>
           </article>
 
-          <article class="card-servico" data-palavras="educacao concursos escola matricula seduc editais vagas">
+          <article class="card-servico" data-perfis="cidadao servidor" data-palavras="educacao concursos escola matricula seduc editais vagas">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M2 10l10-5 10 5-10 5-10-5z"></path>
@@ -225,7 +241,7 @@
             </a>
           </article>
 
-          <article class="card-servico" data-palavras="contracheque servidor holerite segep ferias rendimentos">
+          <article class="card-servico" data-perfis="servidor" data-palavras="contracheque servidor holerite segep ferias rendimentos">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -245,7 +261,7 @@
             </a>
           </article>
 
-          <article class="card-servico" data-palavras="empresas nota fiscal alvara jucer abertura negocio cnpj">
+          <article class="card-servico" data-perfis="empresa" data-palavras="empresas nota fiscal alvara jucer abertura negocio cnpj">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="7" width="18" height="13" rx="2"></rect>

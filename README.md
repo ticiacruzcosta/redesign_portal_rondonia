@@ -41,6 +41,7 @@ Protótipo conceitual da página inicial do **Portal do Governo de Rondônia**, 
 ### 3. Flexibilidade e eficiência de uso (Heurística #7)
 - **Busca protagonista:** Campo de pesquisa amplo logo na primeira dobra com a pergunta direta *"O que você precisa resolver hoje?"* e filtragem instantânea com normalização de acentos.
 - **Atalhos de acesso rápido:** Tags clicáveis abaixo da busca (*IPVA*, *Trânsito e CNH*, *Concursos*, *Contracheque*, *Diário Oficial* e *Ouvidoria*) para reduzir o número de cliques até os serviços mais demandados.
+- **Filtros por perfil de público:** Botões acessíveis (*Todos os públicos*, *Cidadão*, *Servidor Público* e *Empresa*) na grade de serviços, espelhando os públicos do portal atual sem poluir a interface.
 
 ### 4. Acessibilidade (WCAG AA/AAA)
 - **Semântica e leitores de tela:** Uso de landmarks HTML5 (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`), link de salto (*"Ir para o conteúdo principal"*), atributos `aria-pressed`, `aria-live="polite"` no status da busca e SVGs decorativos marcados com `aria-hidden="true"`.
