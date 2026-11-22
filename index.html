@@ -15,7 +15,7 @@
   <div class="barra-acessibilidade" role="region" aria-label="Opções de acessibilidade">
     <div class="container barra-acessibilidade__inner">
       <p class="barra-acessibilidade__aviso">
-        Portal de Serviços Públicos — Estado de Rondônia
+        Acessibilidade | Portal de Serviços Públicos — Rondônia
       </p>
       <div class="barra-acessibilidade__controles">
         <button
@@ -121,13 +121,9 @@
         </svg>
       </div>
       <div class="container hero__inner">
-        <span class="hero__etiqueta">Atendimento digital para cidadãos, servidores e empresas</span>
         <h1 id="hero-titulo" class="hero__titulo">
           Resolva serviços do Governo de Rondônia em um só lugar
         </h1>
-        <p class="hero__subtitulo">
-          Encontre guias, agendamentos, documentos e consultas usando palavras simples do seu dia a dia.
-        </p>
 
         <form class="busca-hero" role="search" id="form-busca">
           <label for="campo-busca" class="sr-only">O que você precisa resolver hoje?</label>
@@ -140,7 +136,7 @@
               type="search"
               id="campo-busca"
               class="busca-hero__input"
-              placeholder="O que você precisa resolver hoje? (ex.: IPVA, CNH, concurso)"
+              placeholder="O que você precisa resolver hoje?"
               autocomplete="off"
             >
             <button
@@ -160,7 +156,6 @@
 
         <!-- Tags clicáveis de acesso rápido -->
         <div class="tags-rapidas" aria-label="Buscas rápidas mais acessadas">
-          <span class="tags-rapidas__rotulo">Mais buscados:</span>
           <div class="tags-rapidas__lista">
             <button type="button" class="tag-rapida" data-busca="IPVA" aria-pressed="false">IPVA</button>
             <button type="button" class="tag-rapida" data-busca="CNH" aria-pressed="false">Trânsito e CNH</button>
@@ -176,20 +171,12 @@
     <!-- Grade de Serviços mais procurados -->
     <section class="secao" id="servicos" aria-labelledby="titulo-servicos">
       <div class="container">
-        <div class="secao__cabecalho">
-          <div>
-            <h2 id="titulo-servicos" class="secao__titulo">Serviços mais procurados</h2>
-            <p class="secao__descricao">
-              Organizados por tarefa para você não precisar memorizar siglas de secretarias.
-            </p>
-          </div>
-          <button type="button" class="btn-limpar-filtro" id="btn-limpar-filtro" hidden>
-            Mostrar todos os serviços
-          </button>
+        <div class="secao__cabecalho secao__cabecalho--central">
+          <h2 id="titulo-servicos" class="secao__titulo">Serviços mais procurados</h2>
         </div>
 
-        <!-- Filtros por perfil de público (espelhando Cidadão, Servidor e Empresa) -->
-        <div class="filtros-perfil" role="group" aria-label="Filtrar serviços por perfil">
+        <!-- Filtros por perfil de público -->
+        <div class="filtros-perfil filtros-perfil--central" role="group" aria-label="Filtrar serviços por perfil">
           <button type="button" class="btn-perfil" data-perfil="todos" aria-pressed="true">
             Todos os públicos
           </button>
@@ -205,10 +192,15 @@
         </div>
 
         <!-- Região ao vivo para leitores de tela ao filtrar serviços -->
-        <p class="status-busca" id="status-busca" aria-live="polite"></p>
+        <div class="barra-status-busca">
+          <p class="status-busca" id="status-busca" aria-live="polite"></p>
+          <button type="button" class="btn-limpar-filtro" id="btn-limpar-filtro" hidden>
+            Mostrar todos os serviços
+          </button>
+        </div>
 
         <div class="grid-servicos" id="lista-servicos">
-          <article class="card-servico" data-perfis="cidadao empresa" data-palavras="impostos ipva tributos sefin guias certidão fiscal">
+          <article class="card-servico" data-perfis="cidadao empresa" data-palavras="impostos ipva tributos sefin guias dare certidão fiscal">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="5" width="18" height="14" rx="2"></rect>
@@ -216,17 +208,12 @@
                 <line x1="7" y1="15" x2="11" y2="15"></line>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Impostos e IPVA</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Impostos e IPVA</a>
+            </h3>
             <p class="card-servico__texto">
-              Emita guias de pagamento, consulte débitos de veículos e tire certidões fiscais.
+              Emissão de guias, DARE e consultas fiscais.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
 
           <article class="card-servico" data-perfis="cidadao" data-palavras="transito cnh habilitacao detran multas veiculo licenciamento">
@@ -237,36 +224,26 @@
                 <circle cx="16.5" cy="17" r="1.5"></circle>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Trânsito e CNH</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Trânsito e CNH</a>
+            </h3>
             <p class="card-servico__texto">
-              Renove sua carteira de motorista, consulte multas e faça o licenciamento anual.
+              Habilitação, multas e licenciamento de veículos.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
 
           <article class="card-servico" data-perfis="cidadao" data-palavras="saude sus sesau agendamento consultas vacinas hospitais">
             <div class="card-servico__icone" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 21s-7-4.35-9-9.5C1.5 7.5 4.5 4 8 4c2 0 3.5 1 4 2.5C12.5 5 14 4 16 4c3.5 0 6.5 3.5 5 7.5-2 5.15-9 9.5-9 9.5z"></path>
+                <path d="M12 5v14M5 12h14"></path>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Saúde</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Saúde</a>
+            </h3>
             <p class="card-servico__texto">
-              Encontre unidades de atendimento, campanhas de vacinação e serviços do SUS estadual.
+              Agendamentos, unidades e campanhas de vacinação.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
 
           <article class="card-servico" data-perfis="cidadao servidor" data-palavras="educacao concursos escola matricula seduc editais vagas">
@@ -276,17 +253,12 @@
                 <path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"></path>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Educação e Concursos</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Educação e Concursos</a>
+            </h3>
             <p class="card-servico__texto">
-              Acompanhe matrículas escolares, boletins, processos seletivos e editais públicos.
+              Matrículas escolares, editais e resultados.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
 
           <article class="card-servico" data-perfis="servidor" data-palavras="contracheque servidor holerite segep ferias rendimentos">
@@ -296,17 +268,12 @@
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Contracheque do Servidor</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Contracheque do Servidor</a>
+            </h3>
             <p class="card-servico__texto">
-              Acesse seu holerite mensal, informe de rendimentos, férias e dados funcionais.
+              Portal do servidor, holerite e informe anual.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
 
           <article class="card-servico" data-perfis="empresa" data-palavras="empresas nota fiscal alvara jucer abertura negocio cnpj">
@@ -316,17 +283,12 @@
                 <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
               </svg>
             </div>
-            <h3 class="card-servico__titulo">Empresas e Notas Fiscais</h3>
+            <h3 class="card-servico__titulo">
+              <a href="#servicos" class="card-servico__link">Empresas e Notas Fiscais</a>
+            </h3>
             <p class="card-servico__texto">
-              Abra ou regularize sua empresa, emita notas fiscais e consulte licitações estaduais.
+              Abertura de empresa, alvarás e NF-e estadual.
             </p>
-            <a href="#servicos" class="card-servico__link">
-              Acessar serviço
-              <svg class="icone-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
           </article>
         </div>
 
@@ -343,74 +305,58 @@
     <section class="secao secao--clara" id="acesso-institucional" aria-labelledby="titulo-institucional">
       <div class="container">
         <div class="secao__cabecalho">
-          <div>
-            <h2 id="titulo-institucional" class="secao__titulo">Transparência e Participação Cidadã</h2>
-            <p class="secao__descricao">
-              Canais diretos para acompanhar contas públicas, atos oficiais e falar com o Estado.
-            </p>
-          </div>
+          <h2 id="titulo-institucional" class="secao__titulo">Transparência e Participação Cidadã</h2>
         </div>
 
         <div class="grid-institucional">
-          <article class="card-institucional" id="card-transparencia">
-            <div class="card-institucional__topo">
-              <span class="card-institucional__badge">Contas Públicas</span>
-              <svg class="card-institucional__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <a href="#acesso-institucional" class="card-institucional-link" id="card-transparencia">
+            <span class="card-institucional-link__inicio">
+              <svg class="card-institucional-link__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M3 3v18h18"></path>
                 <path d="M7 14l4-4 4 3 5-6"></path>
               </svg>
-            </div>
-            <h3 class="card-institucional__titulo">Portal da Transparência</h3>
-            <p class="card-institucional__texto">
-              Consulte receitas, despesas, contratos, convênios e folha de pagamento do Estado.
-            </p>
-            <a href="#acesso-institucional" class="btn-secundario">Consultar dados</a>
-          </article>
+              <span class="card-institucional-link__titulo">Portal da Transparência</span>
+            </span>
+            <svg class="card-institucional-link__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
 
-          <article class="card-institucional" id="card-ouvidoria">
-            <div class="card-institucional__topo">
-              <span class="card-institucional__badge">Atendimento</span>
-              <svg class="card-institucional__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <a href="#acesso-institucional" class="card-institucional-link" id="card-ouvidoria">
+            <span class="card-institucional-link__inicio">
+              <svg class="card-institucional-link__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
-            </div>
-            <h3 class="card-institucional__titulo">Ouvidoria e Fala.BR</h3>
-            <p class="card-institucional__texto">
-              Registre solicitações, denúncias, elogios ou pedidos de acesso à informação.
-            </p>
-            <a href="#acesso-institucional" class="btn-secundario">Enviar manifestação</a>
-          </article>
+              <span class="card-institucional-link__titulo">Ouvidoria e Fala.BR</span>
+            </span>
+            <svg class="card-institucional-link__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
 
-          <article class="card-institucional" id="card-diario">
-            <div class="card-institucional__topo">
-              <span class="card-institucional__badge">Atos Oficiais</span>
-              <svg class="card-institucional__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <a href="#acesso-institucional" class="card-institucional-link" id="card-diario">
+            <span class="card-institucional-link__inicio">
+              <svg class="card-institucional-link__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="8" y1="13" x2="16" y2="13"></line>
                 <line x1="8" y1="17" x2="16" y2="17"></line>
               </svg>
-            </div>
-            <h3 class="card-institucional__titulo">Diário Oficial (DIOF)</h3>
-            <p class="card-institucional__texto">
-              Pesquise decretos, leis, nomeações e editais publicados diariamente pelo Governo.
-            </p>
-            <a href="#acesso-institucional" class="btn-secundario">Ler edições</a>
-          </article>
+              <span class="card-institucional-link__titulo">Diário Oficial (DIOF)</span>
+            </span>
+            <svg class="card-institucional-link__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Bloco organizado de Últimas notícias e Destaques (máximo 3 cards limpos) -->
-    <section class="secao" id="noticias" aria-labelledby="titulo-noticias">
+    <section class="secao secao--noticias" id="noticias" aria-labelledby="titulo-noticias">
       <div class="container">
         <div class="secao__cabecalho">
-          <div>
-            <h2 id="titulo-noticias" class="secao__titulo">Últimas notícias e Destaques</h2>
-            <p class="secao__descricao">
-              Informes essenciais de utilidade pública em todo o estado.
-            </p>
-          </div>
+          <h2 id="titulo-noticias" class="secao__titulo">Últimas notícias e Destaques</h2>
           <a href="#noticias" class="link-ver-todas">Ver todas as notícias</a>
         </div>
 
@@ -430,16 +376,13 @@
             <div class="card-noticia__conteudo">
               <div class="card-noticia__meta">
                 <span class="card-noticia__categoria">Infraestrutura</span>
-                <time datetime="2026-11-20">20 nov 2026</time>
+                <time datetime="2026-11-20">20/11/2026</time>
               </div>
               <h3 class="card-noticia__titulo">
                 <a href="#noticias" class="card-noticia__link">
-                  Obras de drenagem e pavimentação avançam em rodovias estaduais
+                  Obras de pavimentação ampliam corredor logístico em Rondônia
                 </a>
               </h3>
-              <p class="card-noticia__resumo">
-                Intervenções melhoram o escoamento da produção agrícola e a segurança no trânsito regional.
-              </p>
             </div>
           </article>
 
@@ -459,16 +402,13 @@
             <div class="card-noticia__conteudo">
               <div class="card-noticia__meta">
                 <span class="card-noticia__categoria">Saúde</span>
-                <time datetime="2026-11-18">18 nov 2026</time>
+                <time datetime="2026-11-18">18/11/2026</time>
               </div>
               <h3 class="card-noticia__titulo">
                 <a href="#noticias" class="card-noticia__link">
-                  Campanha estadual de vacinação amplia horário de atendimento nos municípios
+                  Mutirão amplia atendimentos e exames na rede pública estadual
                 </a>
               </h3>
-              <p class="card-noticia__resumo">
-                Unidades básicas passam a atender em turno estendido para facilitar o acesso de trabalhadores.
-              </p>
             </div>
           </article>
 
@@ -488,16 +428,13 @@
             <div class="card-noticia__conteudo">
               <div class="card-noticia__meta">
                 <span class="card-noticia__categoria">Educação</span>
-                <time datetime="2026-11-15">15 nov 2026</time>
+                <time datetime="2026-11-15">15/11/2026</time>
               </div>
               <h3 class="card-noticia__titulo">
                 <a href="#noticias" class="card-noticia__link">
-                  Aberto o período de pré-matrícula digital para a rede pública estadual
+                  Escolas estaduais recebem novos laboratórios de tecnologia
                 </a>
               </h3>
-              <p class="card-noticia__resumo">
-                Responsáveis podem realizar a inscrição on-line de forma simples usando o CPF do estudante.
-              </p>
             </div>
           </article>
         </div>
@@ -507,15 +444,19 @@
 
   <footer class="rodape">
     <div class="container rodape__inner">
-      <div class="rodape__info">
-        <p class="rodape__titulo">Portal de Serviços — Governo do Estado de Rondônia</p>
-        <p class="rodape__horario">
-          Atendimento presencial no Palácio Rio Madeira: segunda a sexta-feira, das 7h30 às 13h30.
-        </p>
+      <div class="rodape__topo">
+        <ul class="rodape__links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#acesso-institucional">Transparência</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#acesso-institucional">Ouvidoria</a></li>
+        </ul>
+        <p class="rodape__marca">GOVERNO DE RONDÔNIA</p>
+        <p class="rodape__horario">Palácio Rio Madeira • 7h30 às 13h30</p>
       </div>
       <div class="rodape__aviso-legal">
         <p>
-          <strong>Aviso de portfólio:</strong> este é um protótipo conceitual criado para estudo de caso em UX/UI e acessibilidade (GovTech), sem vínculo oficial com o Governo do Estado de Rondônia.
+          <strong>Protótipo conceitual (UX/UI &amp; WCAG):</strong> estudo de caso para portfólio, sem vínculo oficial com o Governo do Estado de Rondônia.
         </p>
       </div>
     </div>
