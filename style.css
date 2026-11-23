@@ -722,6 +722,26 @@ svg {
   height: 22px;
 }
 
+.card-servico__seta {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 20px;
+  height: 20px;
+  color: var(--cor-texto-secundario);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.card-servico:hover .card-servico__seta,
+.card-servico:focus-within .card-servico__seta {
+  transform: translateX(4px);
+  color: var(--cor-azul-medio);
+}
+
+[data-contrast="high"] .card-servico__seta {
+  color: var(--cor-amarelo-detalhe);
+}
+
 .card-servico__titulo {
   margin: 0 0 0.25rem;
   font-size: 1.125rem;
@@ -906,14 +926,15 @@ svg {
   overflow: hidden;
 }
 
-.card-noticia__capa svg {
+.card-noticia__capa img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.25s ease;
 }
 
-.card-noticia:hover .card-noticia__capa svg {
+.card-noticia:hover .card-noticia__capa img {
   transform: scale(1.03);
 }
 
