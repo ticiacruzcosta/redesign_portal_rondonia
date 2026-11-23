@@ -2,7 +2,7 @@
 
 Protótipo conceitual da página inicial do **Portal do Governo do Estado de Rondônia**, desenvolvido para estudo de caso de portfólio em **UX/UI Design** e **Desenvolvimento Front-end (GovTech)** com foco em acessibilidade (**WCAG AA/AAA**), utilizando apenas **HTML5 semântico**, **CSS3 puro** e **JavaScript vanilla**.
 
-- **Prévia ao vivo (após ativar o GitHub Pages):** `https://ticiacruzcosta.github.io/redesign_portal_rondonia/`
+- **Prévia ao vivo:** `https://ticiacruzcosta.github.io/redesign_portal_rondonia/`
 - **Referência analisada:** `https://rondonia.ro.gov.br/portal/`
 
 > **Aviso:** Este é um projeto conceitual de portfólio, sem vínculo oficial com o Governo do Estado de Rondônia.
@@ -22,8 +22,6 @@ Protótipo conceitual da página inicial do **Portal do Governo do Estado de Ron
 
 ### Portal Atual (Antes)
 ![Captura do portal atual do Governo do Estado de Rondônia](assets/portal-atual-antes.jpg)
-
-> *Dica de portfólio:* após ativar o GitHub Pages, tire um print da página inicial do redesign, salve em `assets/portal-redesign-depois.jpg` e adicione `![Redesign conceitual](assets/portal-redesign-depois.jpg)` aqui para completar o comparativo visual.
 
 ---
 
@@ -58,16 +56,10 @@ Protótipo conceitual da página inicial do **Portal do Governo do Estado de Ron
 
 ---
 
-## Como executar e publicar
+## Como executar localmente
 
-### Localmente
 1. Clone o repositório:
    ```bash
    git clone https://github.com/ticiacruzcosta/redesign_portal_rondonia.git
    ```
 2. Abra o arquivo `index.html` no navegador.
-
-### No GitHub Pages
-1. Acesse **Settings** > **Pages** no repositório.
-2. Em **Source**, selecione **Deploy from a branch**.
-3. Escolha a branch **`main`** e a pasta **`/ (root)`**, depois clique em **Save**.
