@@ -358,15 +358,12 @@ svg {
 
 .hero__fundo {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(68%, 820px);
+  inset: 0;
   background-image:
-    linear-gradient(90deg, #0b2545 0%, rgba(11, 37, 69, 0.88) 38%, rgba(11, 37, 69, 0.48) 100%),
+    linear-gradient(180deg, rgba(11, 37, 69, 0.88) 0%, rgba(11, 37, 69, 0.78) 100%),
     url("assets/hero-rondonia.jpg");
   background-size: cover;
-  background-position: center 45%;
+  background-position: center 40%;
   pointer-events: none;
   z-index: 0;
 }
@@ -437,6 +434,13 @@ svg {
 
 .busca-hero__input::placeholder {
   color: var(--cor-texto-secundario);
+}
+
+/* Remove o botão X nativo de input[type="search"] para evitar duplicação */
+.busca-hero__input::-webkit-search-cancel-button,
+.busca-hero__input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .busca-hero__input:focus-visible {
@@ -680,10 +684,15 @@ svg {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.card-servico:hover,
-.card-servico:focus-within {
+.card-servico:hover {
   transform: translateY(-2px);
   box-shadow: var(--sombra-hover);
+  border-color: var(--cor-azul-medio);
+}
+
+.card-servico:focus-within {
+  outline: 3px solid var(--cor-foco-escuro);
+  outline-offset: 2px;
   border-color: var(--cor-azul-medio);
 }
 
@@ -791,6 +800,7 @@ svg {
 .card-institucional-link {
   min-height: 64px;
   padding: 1rem 1.25rem;
+  scroll-margin-top: 1.5rem;
   background-color: var(--cor-fundo);
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-card);
@@ -801,13 +811,19 @@ svg {
   text-decoration: none;
   color: var(--cor-texto-principal);
   font-weight: 700;
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-institucional-link:hover {
   border-color: var(--cor-azul-medio);
   background-color: var(--cor-superficie);
   transform: translateY(-1px);
+}
+
+.card-institucional-link:target {
+  border-color: var(--cor-azul-medio);
+  background-color: var(--cor-superficie);
+  box-shadow: 0 0 0 3px rgba(15, 76, 146, 0.22);
 }
 
 [data-contrast="high"] .card-institucional-link {
@@ -1062,12 +1078,25 @@ svg {
   font-size: 1.375rem;
   line-height: 1;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toast__fechar:hover {
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
 /* ==========================================================================
    Responsividade (Mobile-First -> Tablet / Desktop)
    ========================================================================== */
 @media (min-width: 640px) {
+  .hero__fundo {
+    left: auto;
+    width: min(68%, 820px);
+    background-image:
+      linear-gradient(90deg, #0b2545 0%, rgba(11, 37, 69, 0.88) 38%, rgba(11, 37, 69, 0.48) 100%),
+      url("assets/hero-rondonia.jpg");
+    background-position: center 45%;
+  }
   .cabecalho__inner {
     flex-direction: row;
     align-items: center;

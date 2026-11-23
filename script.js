@@ -227,6 +227,14 @@
   tagsBusca.forEach((tag) => {
     tag.addEventListener('click', () => {
       const termo = tag.dataset.busca || '';
+      const jaAtiva = tag.getAttribute('aria-pressed') === 'true';
+
+      if (jaAtiva) {
+        campoBusca.value = '';
+        filtrarServicos('');
+        return;
+      }
+
       campoBusca.value = termo;
       atualizarBotoesPerfil('todos');
       filtrarServicos(termo, true);
@@ -251,6 +259,13 @@
   toastFechar.addEventListener('click', () => {
     clearTimeout(timerToast);
     toastAviso.hidden = true;
+  });
+
+  document.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Escape' && !toastAviso.hidden) {
+      clearTimeout(timerToast);
+      toastAviso.hidden = true;
+    }
   });
 
   const linksSimulados = document.querySelectorAll(
