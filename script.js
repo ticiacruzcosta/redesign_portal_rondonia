@@ -90,6 +90,13 @@
   });
 
   // --- Menu Mobile ---
+  function fecharMenuMobile() {
+    if (!navegacaoPrincipal || !btnMenuMobile) return;
+    navegacaoPrincipal.classList.remove('navegacao--aberta');
+    btnMenuMobile.setAttribute('aria-expanded', 'false');
+    btnMenuMobile.setAttribute('aria-label', 'Abrir menu de navegação');
+  }
+
   if (btnMenuMobile && navegacaoPrincipal) {
     btnMenuMobile.addEventListener('click', () => {
       const aberto = navegacaoPrincipal.classList.toggle('navegacao--aberta');
@@ -101,11 +108,26 @@
     });
 
     navegacaoPrincipal.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navegacaoPrincipal.classList.remove('navegacao--aberta');
-        btnMenuMobile.setAttribute('aria-expanded', 'false');
-        btnMenuMobile.setAttribute('aria-label', 'Abrir menu de navegação');
-      });
+      link.addEventListener('click', fecharMenuMobile);
+    });
+
+    document.addEventListener('click', (evento) => {
+      if (
+        navegacaoPrincipal.classList.contains('navegacao--aberta') &&
+        !evento.target.closest('.cabecalho')
+      ) {
+        fecharMenuMobile();
+      }
+    });
+
+    document.addEventListener('keydown', (evento) => {
+      if (
+        evento.key === 'Escape' &&
+        navegacaoPrincipal.classList.contains('navegacao--aberta')
+      ) {
+        fecharMenuMobile();
+        btnMenuMobile.focus();
+      }
     });
   }
 
@@ -283,4 +305,25 @@
       );
     });
   });
+
+  // --- Botão Voltar ao Topo ---
+  const btnVoltarTopo = document.getElementById('btn-voltar-topo');
+
+  if (btnVoltarTopo) {
+    window.addEventListener(
+      'scroll',
+      () => {
+        btnVoltarTopo.hidden = window.scrollY <= 400;
+      },
+      { passive: true }
+    );
+
+    btnVoltarTopo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const topoLink = document.getElementById('topo');
+      if (topoLink) {
+        topoLink.focus({ preventScroll: true });
+      }
+    });
+  }
 })();

@@ -1085,6 +1085,41 @@ svg {
   background-color: rgba(255, 255, 255, 0.16);
 }
 
+/* Botão Voltar ao Topo */
+.btn-topo {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 800;
+  min-width: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-azul-escuro);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(11, 37, 69, 0.25);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-topo[hidden] {
+  display: none;
+}
+
+.btn-topo:hover {
+  background-color: var(--cor-azul-medio);
+  transform: translateY(-2px);
+}
+
+[data-contrast="high"] .btn-topo {
+  background-color: #000000;
+  color: var(--cor-amarelo-detalhe);
+  border-color: var(--cor-amarelo-detalhe);
+}
+
 /* ==========================================================================
    Responsividade (Mobile-First -> Tablet / Desktop)
    ========================================================================== */
