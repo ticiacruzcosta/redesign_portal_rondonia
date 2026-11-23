@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal de Serviços do Governo de Rondônia — Protótipo Conceitual UX/UI</title>
-  <meta name="description" content="Redesign conceitual da página inicial do Portal do Governo de Rondônia com foco em usabilidade, linguagem cidadã e acessibilidade WCAG.">
+  <title>Portal do Governo do Estado de Rondônia — Protótipo Conceitual UX/UI</title>
+  <meta name="description" content="Redesign conceitual da página inicial do Portal do Governo do Estado de Rondônia com foco em usabilidade, linguagem cidadã e acessibilidade WCAG.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,11 +12,15 @@
   <a class="skip-link" href="#conteudo-principal">Ir para o conteúdo principal</a>
 
   <!-- Barra discreta de acessibilidade no topo -->
-  <div class="barra-acessibilidade" role="region" aria-label="Opções de acessibilidade">
+  <div class="barra-acessibilidade" role="region" aria-label="Opções de acessibilidade e acesso à informação">
     <div class="container barra-acessibilidade__inner">
-      <p class="barra-acessibilidade__aviso">
-        Acessibilidade | Portal de Serviços Públicos — Rondônia
-      </p>
+      <div class="barra-acessibilidade__atalhos">
+        <a href="#acesso-institucional" class="barra-acessibilidade__link">Acesso à Informação</a>
+        <span aria-hidden="true">•</span>
+        <a href="#rodape-institucional" class="barra-acessibilidade__link">Secretarias e Órgãos</a>
+        <span aria-hidden="true">•</span>
+        <a href="#rodape-institucional" class="barra-acessibilidade__link">LGPD</a>
+      </div>
       <div class="barra-acessibilidade__controles">
         <button
           type="button"
@@ -55,14 +59,12 @@
   <header class="cabecalho">
     <div class="container cabecalho__inner">
       <div class="cabecalho__topo">
-        <a href="#topo" class="marca" id="topo" aria-label="Página inicial do Portal de Serviços de Rondônia">
+        <a href="#topo" class="marca" id="topo" aria-label="Página inicial do Portal do Governo do Estado de Rondônia">
           <span class="marca__brasao" aria-hidden="true">
             <img src="assets/brasao-rondonia.jpg" alt="" width="44" height="44" class="marca__brasao-img">
           </span>
           <span class="marca__texto">
-            <strong>Governo de Rondônia</strong>
-            <span class="marca__separador" aria-hidden="true">|</span>
-            <span class="marca__subtitulo">Portal de Serviços ao Cidadão</span>
+            <strong>Portal do Governo do Estado de Rondônia</strong>
           </span>
         </a>
 
@@ -324,12 +326,25 @@
             </svg>
           </a>
 
+          <a href="#acesso-institucional" class="card-institucional-link" id="card-observatorio">
+            <span class="card-institucional-link__inicio">
+              <svg class="card-institucional-link__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 3v9l6 3"></path>
+              </svg>
+              <span class="card-institucional-link__titulo">Observatório do Desenvolvimento Regional</span>
+            </span>
+            <svg class="card-institucional-link__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </a>
+
           <a href="#acesso-institucional" class="card-institucional-link" id="card-ouvidoria">
             <span class="card-institucional-link__inicio">
               <svg class="card-institucional-link__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
               </svg>
-              <span class="card-institucional-link__titulo">Ouvidoria e Fala.BR</span>
+              <span class="card-institucional-link__titulo">Ouvidoria e Fala.BR • 0800 647 7071</span>
             </span>
             <svg class="card-institucional-link__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="9 18 15 12 9 6"></polyline>
@@ -424,17 +439,19 @@
     </section>
   </main>
 
-  <footer class="rodape">
+  <footer class="rodape" id="rodape-institucional">
     <div class="container rodape__inner">
       <div class="rodape__topo">
         <ul class="rodape__links">
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#acesso-institucional">Transparência</a></li>
-          <li><a href="#noticias">Notícias</a></li>
-          <li><a href="#acesso-institucional">Ouvidoria</a></li>
+          <li><a href="#acesso-institucional">Acesso à Informação</a></li>
+          <li><a href="#rodape-institucional" class="rodape__link-simulado">Secretarias e Órgãos</a></li>
+          <li><a href="#rodape-institucional" class="rodape__link-simulado">Empregos</a></li>
+          <li><a href="#rodape-institucional" class="rodape__link-simulado">LGPD</a></li>
+          <li><a href="#rodape-institucional" class="rodape__link-simulado">Perguntas Frequentes</a></li>
         </ul>
-        <p class="rodape__marca">GOVERNO DE RONDÔNIA</p>
-        <p class="rodape__horario">Palácio Rio Madeira • 7h30 às 13h30</p>
+        <p class="rodape__marca">Portal do Governo do Estado de Rondônia</p>
+        <p class="rodape__horario">Palácio Rio Madeira • Seg a Sex, 7h30 às 13h30 • Ouvidoria 0800 647 7071</p>
       </div>
       <div class="rodape__aviso-legal">
         <p>

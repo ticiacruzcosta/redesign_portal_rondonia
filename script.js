@@ -291,7 +291,7 @@
   });
 
   const linksSimulados = document.querySelectorAll(
-    '.card-servico__link, .card-institucional-link, .card-noticia__link, .card-noticia__capa-link, .link-ver-todas'
+    '.card-servico__link, .card-institucional-link, .card-noticia__link, .card-noticia__capa-link, .link-ver-todas, .rodape__link-simulado'
   );
 
   linksSimulados.forEach((link) => {
