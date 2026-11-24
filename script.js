@@ -89,6 +89,15 @@
     aplicarAltoContraste(!ativo);
   });
 
+  // Atalho de teclado Alt + T para alternar o tema escuro
+  document.addEventListener('keydown', (evento) => {
+    if (evento.altKey && evento.key.toLowerCase() === 't') {
+      evento.preventDefault();
+      const ativo = html.getAttribute('data-contrast') === 'high';
+      aplicarAltoContraste(!ativo);
+    }
+  });
+
   // --- Menu Mobile ---
   function fecharMenuMobile() {
     if (!navegacaoPrincipal || !btnMenuMobile) return;

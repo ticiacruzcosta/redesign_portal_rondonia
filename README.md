@@ -18,7 +18,7 @@ Protótipo conceitual da página inicial do **Portal do Governo do Estado de Ron
 | **Navegação e ruído visual** | Duas barras horizontais com dezenas de links concorrentes e carrosséis empilhados. | Cabeçalho enxuto com brasão oficial, 4 links principais e menu recolhível no mobile. |
 | **Canais de cidadania** | Banners gráficos empilhados na coluna lateral direita. | Bloco limpo em grid 2×2 para *Transparência*, *Observatório*, *Ouvidoria (0800 647 7071)* e *Diário Oficial*. |
 | **Notícias** | Múltiplos blocos concorrentes com miniaturas e textos sobrepostos em fotos. | Seção **Últimas notícias e Destaques** com 3 cards limpos, capas `16:9` e leitura fora da foto. |
-| **Acessibilidade** | Botões flutuantes laterais desconectados da hierarquia do cabeçalho. | Barra dedicada no topo (`A-`, `A+` com escala `90%–120%`, **Alto Contraste**) e navegação 100% por teclado. |
+| **Acessibilidade** | Botões flutuantes laterais desconectados da hierarquia do cabeçalho. | Barra dedicada no topo (`A-`, `A+` com escala `90%–120%`, **Tema escuro** via `Alt + T`) e navegação 100% por teclado. |
 
 ### Portal Atual (Antes)
 ![Captura do portal atual do Governo do Estado de Rondônia](assets/portal-atual-antes.jpg)
@@ -51,7 +51,7 @@ Protótipo conceitual da página inicial do **Portal do Governo do Estado de Ron
 - **Zero dependências externas:** Construído apenas com HTML5, CSS3 e JavaScript vanilla.
 - **Navegação por teclado:** Skip link (*"Ir para o conteúdo principal"*), foco visível (`:focus-visible` e `:focus-within`), suporte a `Tab` e fechamento de toast/menu mobile via `Esc`.
 - **Alvos de toque confortáveis:** Altura e largura mínimas de `48px` em botões, links principais, filtros e controles de acessibilidade.
-- **Modo Alto Contraste Claro (WCAG AAA):** Alternância dedicada com fundo branco (`#FFFFFF`), textos e bordas de `2px` em preto (`#000000`) e destaques em azul profundo (`#002B7F`), com persistência em `localStorage`.
+- **Tema Escuro Suave (WCAG AA/AAA):** Alternância dedicada pelo botão **Tema escuro** ou pelo atalho `Alt + T`, com fundo grafite (`#181818` / `#242424`), texto claro (`#F5F5F5`) e destaques em amarelo (`#F2B705`), com persistência em `localStorage`.
 - **Respeito a preferências do sistema:** Suporte a `prefers-reduced-motion`.
 
 ---

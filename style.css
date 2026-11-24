@@ -29,24 +29,24 @@
   --sombra-hover: 0 10px 24px rgba(11, 37, 69, 0.1);
 }
 
-/* Modo Alto Contraste Claro (WCAG AAA - ativado via barra de acessibilidade) */
+/* Tema Escuro Suave (WCAG AA/AAA - ativado via barra de acessibilidade ou Alt + T) */
 [data-contrast="high"] {
-  --cor-azul-escuro: #000000;
-  --cor-azul-medio: #002b7f;
-  --cor-verde-destaque: #000000;
-  --cor-verde-fundo: #f1f5f9;
-  --cor-verde-texto: #000000;
-  --cor-amarelo-detalhe: #000000;
+  --cor-azul-escuro: #141414;
+  --cor-azul-medio: #60a5fa;
+  --cor-verde-destaque: #22c55e;
+  --cor-verde-fundo: #1a2e22;
+  --cor-verde-texto: #4ade80;
+  --cor-amarelo-detalhe: #f2b705;
 
-  --cor-fundo: #ffffff;
-  --cor-superficie: #ffffff;
-  --cor-borda: #000000;
-  --cor-texto-principal: #000000;
-  --cor-texto-secundario: #111827;
-  --cor-foco: #0033cc;
-  --cor-foco-escuro: #0033cc;
-  --sombra-suave: none;
-  --sombra-hover: none;
+  --cor-fundo: #181818;
+  --cor-superficie: #242424;
+  --cor-borda: #3d3d3d;
+  --cor-texto-principal: #f5f5f5;
+  --cor-texto-secundario: #cbd5e1;
+  --cor-foco: #f2b705;
+  --cor-foco-escuro: #f2b705;
+  --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --sombra-hover: 0 10px 24px rgba(0, 0, 0, 0.45);
 }
 
 /* Reset e Base */
@@ -207,30 +207,30 @@ svg {
 }
 
 [data-contrast="high"] .barra-acessibilidade {
-  background-color: #ffffff;
-  color: #000000;
-  border-bottom: 2px solid #000000;
+  background-color: #141414;
+  color: #f5f5f5;
+  border-bottom: 1px solid #333333;
 }
 
 [data-contrast="high"] .barra-acessibilidade__aviso,
 [data-contrast="high"] .indicador-fonte {
-  color: #000000;
+  color: #cbd5e1;
 }
 
 [data-contrast="high"] .btn-acessibilidade {
-  color: #000000;
-  border: 2px solid #000000;
+  color: #f5f5f5;
+  border: 1px solid #4a4a4a;
 }
 
 [data-contrast="high"] .btn-acessibilidade:hover:not(:disabled) {
-  background-color: #e2e8f0;
-  border-color: #000000;
+  background-color: #2c2c2c;
+  border-color: #cbd5e1;
 }
 
 [data-contrast="high"] .btn-acessibilidade[aria-pressed="true"] {
-  background-color: #000000;
-  color: #ffffff;
-  border-color: #000000;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 .icone-sm {
@@ -327,9 +327,9 @@ svg {
 }
 
 [data-contrast="high"] .btn-menu-mobile {
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: #242424;
+  color: #f5f5f5;
+  border-color: #3d3d3d;
 }
 
 .navegacao {
@@ -367,9 +367,8 @@ svg {
 }
 
 [data-contrast="high"] .navegacao__link:hover {
-  background-color: #e2e8f0;
-  color: #000000;
-  text-decoration: underline;
+  background-color: #2c2c2c;
+  color: var(--cor-amarelo-detalhe);
 }
 
 /* ==========================================================================
@@ -397,13 +396,15 @@ svg {
 }
 
 [data-contrast="high"] .hero {
-  background: #ffffff;
-  color: #000000;
-  border-bottom: 3px solid #000000;
+  background-color: #141414;
+  color: #f5f5f5;
+  border-bottom: 3px solid var(--cor-verde-destaque);
 }
 
 [data-contrast="high"] .hero__fundo {
-  display: none;
+  background-image:
+    linear-gradient(180deg, rgba(20, 20, 20, 0.9) 0%, rgba(20, 20, 20, 0.8) 100%),
+    url("assets/hero-rondonia.jpg");
 }
 
 .hero__inner {
@@ -439,8 +440,7 @@ svg {
 }
 
 [data-contrast="high"] .busca-hero__grupo {
-  border: 2px solid #000000;
-  box-shadow: none;
+  border-color: #3d3d3d;
 }
 
 .busca-hero__icone {
@@ -527,12 +527,12 @@ svg {
 }
 
 [data-contrast="high"] .busca-hero__botao {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
 }
 
 [data-contrast="high"] .busca-hero__botao:hover {
-  background-color: #002b7f;
+  background-color: #ffd038;
 }
 
 /* Tags Rápidas */
@@ -574,20 +574,21 @@ svg {
 }
 
 [data-contrast="high"] .tag-rapida {
-  background-color: #ffffff;
-  border: 2px solid #000000;
-  color: #000000;
+  background-color: #242424;
+  border-color: #4a4a4a;
+  color: #f5f5f5;
 }
 
 [data-contrast="high"] .tag-rapida:hover {
-  background-color: #e2e8f0;
-  color: #000000;
+  background-color: #303030;
+  border-color: var(--cor-amarelo-detalhe);
+  color: #ffffff;
 }
 
 [data-contrast="high"] .tag-rapida[aria-pressed="true"] {
-  background-color: #000000;
-  color: #ffffff;
-  border-color: #000000;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 /* ==========================================================================
@@ -699,20 +700,21 @@ svg {
 }
 
 [data-contrast="high"] .btn-perfil {
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: #242424;
+  color: #f5f5f5;
+  border-color: #3d3d3d;
 }
 
 [data-contrast="high"] .btn-perfil:hover {
-  background-color: #e2e8f0;
-  color: #000000;
+  background-color: #303030;
+  color: var(--cor-amarelo-detalhe);
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 [data-contrast="high"] .btn-perfil[aria-pressed="true"] {
-  background-color: #000000;
-  color: #ffffff;
-  border-color: #000000;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 /* ==========================================================================
@@ -747,13 +749,13 @@ svg {
 }
 
 [data-contrast="high"] .card-servico {
-  border: 2px solid #000000;
+  border-color: #3d3d3d;
 }
 
 [data-contrast="high"] .card-servico:hover,
 [data-contrast="high"] .card-servico:focus-within {
-  background-color: #f8fafc;
-  border-color: #000000;
+  background-color: #2b2b2b;
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 .card-servico__icone {
@@ -858,15 +860,15 @@ svg {
 
 [data-contrast="high"] .btn-secundario,
 [data-contrast="high"] .btn-limpar-filtro {
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: #242424;
+  color: var(--cor-amarelo-detalhe);
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 [data-contrast="high"] .btn-secundario:hover,
 [data-contrast="high"] .btn-limpar-filtro:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
 }
 
 /* ==========================================================================
@@ -908,15 +910,15 @@ svg {
 }
 
 [data-contrast="high"] .card-institucional-link {
-  background-color: #ffffff;
-  border: 2px solid #000000;
-  color: #000000;
+  background-color: #242424;
+  border-color: #3d3d3d;
+  color: #f5f5f5;
 }
 
 [data-contrast="high"] .card-institucional-link:hover {
-  background-color: #f1f5f9;
-  border-color: #000000;
-  color: #000000;
+  background-color: #2b2b2b;
+  border-color: var(--cor-amarelo-detalhe);
+  color: var(--cor-amarelo-detalhe);
 }
 
 .card-institucional-link__inicio {
@@ -1041,15 +1043,11 @@ svg {
 }
 
 [data-contrast="high"] .card-noticia__categoria {
-  border: 1px solid #000000;
-}
-
-[data-contrast="high"] .card-noticia__link {
-  text-decoration: underline;
+  border: 1px solid #2e593e;
 }
 
 [data-contrast="high"] .card-noticia__link:hover {
-  color: #002b7f;
+  color: var(--cor-amarelo-detalhe);
 }
 
 /* ==========================================================================
@@ -1063,23 +1061,22 @@ svg {
 }
 
 [data-contrast="high"] .rodape {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 3px solid #000000;
+  background-color: #141414;
+  color: #cbd5e1;
+  border-top: 3px solid var(--cor-amarelo-detalhe);
 }
 
 [data-contrast="high"] .rodape__marca,
-[data-contrast="high"] .rodape__links a,
-[data-contrast="high"] .rodape__aviso-legal {
-  color: #000000;
+[data-contrast="high"] .rodape__links a {
+  color: #f5f5f5;
 }
 
-[data-contrast="high"] .rodape__links a {
-  text-decoration: underline;
+[data-contrast="high"] .rodape__aviso-legal {
+  color: #94a3b8;
 }
 
 [data-contrast="high"] .rodape__base {
-  border-top-color: #000000;
+  border-top-color: #333333;
 }
 
 .rodape__inner {
@@ -1222,25 +1219,25 @@ svg {
 }
 
 [data-contrast="high"] .btn-topo {
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: #242424;
+  color: var(--cor-amarelo-detalhe);
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 [data-contrast="high"] .btn-topo:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--cor-amarelo-detalhe);
+  color: #111827;
 }
 
 [data-contrast="high"] .toast {
-  background-color: #ffffff;
-  color: #000000;
-  border: 2px solid #000000;
+  background-color: #242424;
+  color: #f5f5f5;
+  border-color: var(--cor-amarelo-detalhe);
 }
 
 [data-contrast="high"] .toast__fechar {
-  color: #000000;
-  border-color: #000000;
+  color: #f5f5f5;
+  border-color: #4a4a4a;
 }
 
 /* ==========================================================================
@@ -1262,6 +1259,12 @@ svg {
       linear-gradient(90deg, #0b2545 0%, rgba(11, 37, 69, 0.88) 38%, rgba(11, 37, 69, 0.48) 100%),
       url("assets/hero-rondonia.jpg");
     background-position: center 45%;
+  }
+
+  [data-contrast="high"] .hero__fundo {
+    background-image:
+      linear-gradient(90deg, #141414 0%, rgba(20, 20, 20, 0.9) 38%, rgba(20, 20, 20, 0.55) 100%),
+      url("assets/hero-rondonia.jpg");
   }
   .cabecalho__inner {
     flex-direction: row;
