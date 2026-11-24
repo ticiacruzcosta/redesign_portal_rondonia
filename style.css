@@ -1003,13 +1003,6 @@ svg {
   text-align: center;
 }
 
-.rodape__topo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.875rem;
-}
-
 .rodape__links {
   list-style: none;
   margin: 0;
@@ -1017,7 +1010,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem 1.5rem;
 }
 
 .rodape__links a {
@@ -1034,10 +1027,18 @@ svg {
   color: #ffffff;
 }
 
+.rodape__base {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
 .rodape__marca {
-  margin: 0;
+  margin: 0 0 0.25rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: #ffffff;
 }
 
@@ -1047,9 +1048,8 @@ svg {
 }
 
 .rodape__aviso-legal {
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  color: #94a3b8;
 }
 
 .rodape__aviso-legal p {
@@ -1208,9 +1208,16 @@ svg {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .rodape__topo {
+  .rodape__base {
     flex-direction: row;
+    align-items: flex-end;
     justify-content: space-between;
+    text-align: left;
+  }
+
+  .rodape__aviso-legal {
+    max-width: 380px;
+    text-align: right;
   }
 }
 
