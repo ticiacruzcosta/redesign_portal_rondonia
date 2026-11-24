@@ -1,4 +1,4 @@
-# Redesign Conceitual  Portal do Governo do Estado de Rondônia (UX/UI & Acessibilidade)
+# Redesign Conceitual 
 
 Protótipo conceitual da página inicial do **Portal do Governo do Estado de Rondônia**, desenvolvido para estudo de caso de portfólio em **UX/UI Design** e **Desenvolvimento Front-end (GovTech)** com foco em acessibilidade (**WCAG AA/AAA**), utilizando apenas **HTML5 semântico**, **CSS3 puro** e **JavaScript vanilla**.
 
