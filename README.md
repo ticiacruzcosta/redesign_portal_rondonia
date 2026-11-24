@@ -51,7 +51,7 @@ Protótipo conceitual da página inicial do **Portal do Governo do Estado de Ron
 - **Zero dependências externas:** Construído apenas com HTML5, CSS3 e JavaScript vanilla.
 - **Navegação por teclado:** Skip link (*"Ir para o conteúdo principal"*), foco visível (`:focus-visible` e `:focus-within`), suporte a `Tab` e fechamento de toast/menu mobile via `Esc`.
 - **Alvos de toque confortáveis:** Altura e largura mínimas de `48px` em botões, links principais, filtros e controles de acessibilidade.
-- **Modo Alto Contraste:** Alternância dedicada (`#000000` / `#FFFFFF` / `#FFE600`) com persistência em `localStorage`.
+- **Modo Alto Contraste Claro (WCAG AAA):** Alternância dedicada com fundo branco (`#FFFFFF`), textos e bordas de `2px` em preto (`#000000`) e destaques em azul profundo (`#002B7F`), com persistência em `localStorage`.
 - **Respeito a preferências do sistema:** Suporte a `prefers-reduced-motion`.
 
 ---
